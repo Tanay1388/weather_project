@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Select City{% endblock %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3 mt-5">
+    <h2 class="text-center">Enter Your City</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Save City</button>
+    </form>
+</div>
+{% endblock %}

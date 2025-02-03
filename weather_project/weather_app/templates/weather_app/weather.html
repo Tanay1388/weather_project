@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Weather{% endblock %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3 mt-4">
+    <h2 class="text-center">Weather in {{ weather_data.name }}</h2>
+
+    <!-- Display Weather Alert -->
+    <div class="alert alert-warning text-center">
+          <!-- Display the weather alert here -->
+        <h1> {{ weather_alert }}</h1>
+    </div>
+
+    {% if weather_data.error %}
+        <div class="alert alert-danger">{{ weather_data.error }}</div>
+    {% else %}
+        <ul class="list-group">
+            <li class="list-group-item">
+                Weather Icon: <img src="http://openweathermap.org/img/wn/{{ weather_data.weather.0.icon }}.png" alt="Weather Icon">
+            </li>
+            <li class="list-group-item">Temperature: {{ weather_data.main.temp }}°C</li>
+            <li class="list-group-item">Feels Like: {{ weather_data.main.feels_like }}°C</li>
+            <li class="list-group-item">Condition: {{ weather_data.weather.0.description }}</li>
+            <li class="list-group-item">Humidity: {{ weather_data.main.humidity }}%</li>
+            <li class="list-group-item">Wind Speed: {{ weather_data.wind.speed }} m/s</li>
+            <li class="list-group-item">Visibility: {{ weather_data.visibility }} meters</li>
+            
+
+        </ul>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{% url 'enter_city' %}" class="btn btn-warning">Change City</a>
+    </div>
+    <div class="text-center mt-4">
+        <a href="{% url 'send_notifications' %}" class="btn btn-success">Send Weather Email</a>
+    </div>
+
+</div>
+{% endblock %}
+

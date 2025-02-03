@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Weather App{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="mt-5">Welcome to the Weather Notification App</h1>
+    <p class="lead">Stay updated with weather alerts for your city.</p>
+    <a href="{% url 'register' %}" class="btn btn-primary btn-lg">Get Started</a>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Set Notification{% endblock %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h2 class="text-center">Set Weather Notification</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100">Save Notification</button>
+    </form>
+</div>
+{% endblock %}
